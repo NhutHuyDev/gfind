@@ -1,11 +1,15 @@
 package main
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/NhutHuyDev/gfind/core"
+)
 
 func TestBuildOption(t *testing.T) {
 	args := []string{"", "-v", "-n", "-c"}
 
-	got, _ := BuildOptions(args)
+	got, _ := core.BuildOptions(args)
 
 	if got.FindDontContain != true {
 		t.Errorf("FindDontContain: got %+v, wanted %v", false, true)

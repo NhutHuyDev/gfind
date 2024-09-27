@@ -3,10 +3,11 @@ package main
 import (
 	"fmt"
 	"os"
+
+	"github.com/NhutHuyDev/gfind/core"
 )
 
 func main() {
-	// Lấy các tham số dòng lệnh từ os.Args
 	args := make([]string, 0)
 	args = append(args, os.Args...)
 
@@ -15,7 +16,7 @@ func main() {
 		return
 	}
 
-	_, ok := BuildOptions(args[:1])
+	_, ok := core.BuildOptions(args[:1])
 	if ok != nil {
 		fmt.Println(ok.Error())
 		return
