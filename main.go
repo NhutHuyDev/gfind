@@ -32,6 +32,26 @@ func main() {
 		return
 	}
 
+	if findOptions.HelpMode {
+		helpText := fmt.Sprintf(
+			"Searches for a text string in a file or files.\n\n" +
+				"gfind [-v] [-c] [-n] [-i] -f <\"string\"> [[drive:][path]filename[...]]\n\n" +
+				"  -v         	Displays all lines NOT containing the specified string.\n" +
+				"  -c         	Displays only the count of lines containing the string.\n" +
+				"  -n         	Displays line numbers with the displayed lines.\n" +
+				"  -i         	Ignores the case of characters when searching for the string.\n" +
+				"  -f         	Required, defines the declaration for the string to search for\n" +
+				"             	and the file or files to search in.\n" +
+				"  <\"string\">   	Specifies the text string to find.\n" +
+				"  [drive:][path]filename\n" +
+				"             	Specifies a file or files to search.\n\n" +
+				"If a path is not specified, FIND searches the text typed at the prompt\n" +
+				"or piped from another command.",
+		)
+		fmt.Print(helpText)
+		return
+	}
+
 	sources, err := core.LineSourceFactory{}.CreateInstance(findOptions.Path)
 	if err != nil {
 		fmt.Println(err.Error())

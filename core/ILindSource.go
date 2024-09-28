@@ -13,12 +13,15 @@ type ILineSource interface {
 }
 
 func ProcessSource(source ILineSource, options FindOptions) {
+	var isContain bool
 	source = NewFilteredLineSource(source, func(l Line) bool {
 		if !options.IsCaseSensitive {
-			return strings.Contains(strings.ToLower(l.text), strings.ToLower(options.StringToFind))
+			isContain = strings.Contains(strings.ToLower(l.text), strings.ToLower(options.StringToFind))
 		} else {
-			return strings.Contains(l.text, options.StringToFind)
+			isContain = strings.Contains(l.text, options.StringToFind)
 		}
+
+		return (options.FindDontContain && !isContain) || (!options.FindDontContain && isContain)
 	})
 
 	err := source.Open()
