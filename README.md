@@ -25,7 +25,7 @@ gfind [-v] [-c] [-n] [-i] -f <"string"> [[drive:][path]filename[...]]
 | `[<drive>:][<path>]<filename>`       | Specifies the location and name of the file in which to search for the specified string.                 |
 | `-help`                                 | Displays help at the command prompt.                                                                     |
 
-## Reference
+## References
 [1]. Học lập trình cùng Nam. (2024, April 17). Học lập trình  NET - Phần 15 - Giải bài tập, unit test, abstract factory và decorator design pattern [Video]. YouTube. https://www.youtube.com/watch?v=SJL664hxJ-4
 
 [2]. Robinharwood. (2023, February 3). find. Microsoft Learn. https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/find
